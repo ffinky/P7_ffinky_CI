@@ -21,7 +21,9 @@ def fct_load_classifier(choice_model):
         classifier_file = 'log_model_final.p'
     else:
         classifier_file = 'lgbm_model_final.p'
-    classifier = pickle.load(open(classifier_file, 'rb'))
+    #classifier = pickle.load(open(classifier_file, 'rb'))
+    with open(classifier_file, 'rb') as f:
+        classifier = pickle.load(f)
     return classifier
 
 # Extraction des features reçues de l'appli (JSON) et conversion au format Numpy X depuis 1 dictionnaire 
